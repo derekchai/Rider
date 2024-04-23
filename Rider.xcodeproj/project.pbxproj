@@ -17,6 +17,10 @@
 		A861108C2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861108B2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift */; };
 		A861109D2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861109C2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift */; };
 		A861109F2BD7AFB7005B7CFA /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */; };
+		A86110A12BD7B90F005B7CFA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86110A02BD7B90F005B7CFA /* StringExtension.swift */; };
+		A86110A42BD7BB28005B7CFA /* LocationDataManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86110A32BD7BB28005B7CFA /* LocationDataManagerError.swift */; };
+		A86110A82BD7C66A005B7CFA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86110A72BD7C66A005B7CFA /* Location.swift */; };
+		A86110AA2BD7C8A2005B7CFA /* CLLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86110A92BD7C8A2005B7CFA /* CLLocationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		A861108B2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A861109C2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		A86110A02BD7B90F005B7CFA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A86110A32BD7BB28005B7CFA /* LocationDataManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManagerError.swift; sourceTree = "<group>"; };
+		A86110A72BD7C66A005B7CFA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A86110A92BD7C8A2005B7CFA /* CLLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +146,10 @@
 		A86110982BD7A9B3005B7CFA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A86110A22BD7BB13005B7CFA /* Errors */,
 				A86110702BD7A634005B7CFA /* Activity.swift */,
 				A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */,
+				A86110A72BD7C66A005B7CFA /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,8 +158,18 @@
 			isa = PBXGroup;
 			children = (
 				A861109C2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift */,
+				A86110A02BD7B90F005B7CFA /* StringExtension.swift */,
+				A86110A92BD7C8A2005B7CFA /* CLLocationExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A86110A22BD7BB13005B7CFA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A86110A32BD7BB28005B7CFA /* LocationDataManagerError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,9 +304,13 @@
 			files = (
 				A861106F2BD7A634005B7CFA /* ContentView.swift in Sources */,
 				A86110712BD7A634005B7CFA /* Activity.swift in Sources */,
+				A86110A12BD7B90F005B7CFA /* StringExtension.swift in Sources */,
+				A86110A82BD7C66A005B7CFA /* Location.swift in Sources */,
+				A86110AA2BD7C8A2005B7CFA /* CLLocationExtension.swift in Sources */,
 				A861106D2BD7A634005B7CFA /* RiderApp.swift in Sources */,
 				A861109D2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift in Sources */,
 				A861109F2BD7AFB7005B7CFA /* LocationDataManager.swift in Sources */,
+				A86110A42BD7BB28005B7CFA /* LocationDataManagerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

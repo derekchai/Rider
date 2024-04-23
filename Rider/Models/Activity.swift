@@ -11,13 +11,13 @@ import CoreLocation
 
 @Model
 final class Activity {
-    var name: String = ""
-    var endDate: Date
-    var coordinates: [CLLocationCoordinate2D] = []
+    var name: String = "New activity"
+    var endDate: Date?
+    var locations: [Location] = []
     
-    init(name: String, endDate: Date, points: [CLLocationCoordinate2D]) {
+    init(name: String, endDate: Date? = nil, locations: [Location]) {
         self.name = name
         self.endDate = endDate
-        self.coordinates = points
+        self.locations = locations
     }
 }

@@ -11,18 +11,20 @@ import OSLog
 
 @Observable
 class LocationDataManager: NSObject, CLLocationManagerDelegate {
-    private let log = Logger(subsystem: RiderApp.subsystem, category: "LocationDataManager")
-    
     static let shared = LocationDataManager()
     
+    private let log = Logger(subsystem: RiderApp.subsystem, category: "LocationDataManager")
     private let locationManager = CLLocationManager()
+    private var updatingLocation = false
+    
+    var currentActivity: Activity?
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
     
-    func requestAuthorization() {
+    private func requestAuthorization() {
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse:
             log.info("Location authorized when in use.")
@@ -37,29 +39,75 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func startUpdatingLocation() {
+    private func startUpdatingLocation() {
+        guard !updatingLocation else {
+            log.notice("Attempted to start updating location but location is already being updated.")
+            return
+        }
         guard locationManager.authorizationStatus == .authorizedWhenInUse else {
             requestAuthorization()
+            startUpdatingLocation()
             return
         }
         log.info("Starting updating location.")
         locationManager.startUpdatingLocation()
+        updatingLocation = true
     }
     
-    func stopUpdatingLocation() {
+    private func stopUpdatingLocation() {
+        guard updatingLocation else {
+            log.notice("Attempted to stop updating location but location is not being updated.")
+            return
+        }
         log.info("Stopping updating location.")
         locationManager.stopUpdatingLocation()
+        updatingLocation = false
+    }
+    
+    /// Create a new activity and start updating location.
+    /// - Parameter name: Name of the activity.
+    func startNewActivity(name: String) {
+        currentActivity = nil
+        guard locationManager.authorizationStatus == .authorizedWhenInUse else {
+            requestAuthorization()
+            return
+        }
+        currentActivity = Activity(name: name, locations: [])
+        startUpdatingLocation()
+        guard name.isNotEmpty else {
+            log.info("Starting new activity.")
+            return
+        }
+        log.info("Starting new activity \"\(name)\".")
+    }
+    
+    /// Stop the existing activity and stop updating location.
+    func stopActivity() {
+        guard let currentActivity else {
+            log.notice("Attempted to stop activity but no existing activity to end.")
+            return
+        }
+        guard currentActivity.name.isNotEmpty else {
+            log.info("Ending activity.")
+            return
+        }
+        log.info("Ending activity \"\(currentActivity.name)\".")
+        stopUpdatingLocation()
     }
 }
 
 extension LocationDataManager {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         requestAuthorization()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let lastLocation = locations.last else { return }
+    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let lastCLLocation = locations.last else { return }
         
-        log.debug("Last location: \(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude)")
+        log.debug("Last location: \(lastCLLocation.coordinate.latitude), \(lastCLLocation.coordinate.longitude)")
+        
+        guard updatingLocation, let currentActivity else { return }
+        
+        currentActivity.locations.append(lastCLLocation.toLocation)
     }
 }
