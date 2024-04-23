@@ -23,14 +23,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(activities) { item in
-                    Section(item.endDate?.formatted() ?? "No date") {
-                        HStack {
-                            Text(item.name)
-                            Spacer()
-                            Text("^[\(item.locations.count) point](inflect: true)")
-                        }
-                    }
+                ForEach(activities) { activity in
+                    ActivityDetailedView(activity: activity)
                 }
                 .onDelete { indexSet in
                     for index in indexSet {
@@ -38,6 +32,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationTitle("Recent Activities")
             .overlay {
                 if activities.isEmpty {
                     ContentUnavailableView {
