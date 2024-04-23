@@ -11,31 +11,15 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Activity]
+    
+    @State private var locationDataManager = LocationDataManager()
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.endDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.endDate, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+        Button("Start updating location") {
+            locationDataManager.startUpdatingLocation()
+        }
+        Button("Stop updating location") {
+            locationDataManager.stopUpdatingLocation()
         }
     }
 

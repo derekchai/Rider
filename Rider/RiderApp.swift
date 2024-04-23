@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct RiderApp: App {
+    static let subsystem = "youngboris.Rider"
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Activity.self,

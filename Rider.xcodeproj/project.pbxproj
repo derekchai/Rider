@@ -16,6 +16,7 @@
 		A861108A2BD7A635005B7CFA /* RiderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86110892BD7A635005B7CFA /* RiderUITests.swift */; };
 		A861108C2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861108B2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift */; };
 		A861109D2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861109C2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift */; };
+		A861109F2BD7AFB7005B7CFA /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		A86110892BD7A635005B7CFA /* RiderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUITests.swift; sourceTree = "<group>"; };
 		A861108B2BD7A635005B7CFA /* RiderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A861109C2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				A86110702BD7A634005B7CFA /* Activity.swift */,
+				A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				A86110712BD7A634005B7CFA /* Activity.swift in Sources */,
 				A861106D2BD7A634005B7CFA /* RiderApp.swift in Sources */,
 				A861109D2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift in Sources */,
+				A861109F2BD7AFB7005B7CFA /* LocationDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
