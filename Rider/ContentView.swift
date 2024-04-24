@@ -51,7 +51,6 @@ struct ContentView: View {
                         Button("Save activity") {
                             guard let currentActivity = locationDataManager.currentActivity else { return }
                             currentActivity.name = activityName
-                            currentActivity.endDate = Date.now
                             activitySaved = true
                             activityName = ""
                             modelContext.insert(currentActivity)

@@ -12,12 +12,10 @@ import CoreLocation
 @Model
 final class Activity {
     var name: String = "New activity"
-    var endDate: Date?
     var locations: [Location] = []
     
     init(name: String, endDate: Date? = nil, locations: [Location]) {
         self.name = name
-        self.endDate = endDate
         self.locations = locations
     }
 }

@@ -10,13 +10,6 @@ import CoreLocation
 
 extension CLLocation {
     var toLocation: Location {
-        Location(
-            latitude: self.coordinate.latitude, 
-            longitude: self.coordinate.longitude,
-            altitude: self.altitude,
-            speed: self.speed,
-            course: self.course,
-            timestamp: self.timestamp
-        )
+        Location(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude, altitude: self.altitude, horizontalAccuracy: self.horizontalAccuracy, verticalAccuracy: self.verticalAccuracy, speed: self.speed, speedAccuracy: self.speedAccuracy, course: self.course, courseAccuracy: self.courseAccuracy, timestamp: self.timestamp)
     }
 }

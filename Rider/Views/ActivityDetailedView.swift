@@ -12,22 +12,26 @@ struct ActivityDetailedView: View {
     let activity: Activity
     
     var body: some View {
-        Section(activity.endDate?.formatted() ?? "No date") {
-            Map {
-                activity.polyline
-                    .strokeStyle(style: .mainLine)
-                    .stroke(.blue)
-            }
-            .frame(height: 200)
-            .allowsHitTesting(false)
-            
+        Section(activity.dateStopped?.formatted(date: .abbreviated, time: .shortened) ?? "No date") {
             VStack(alignment: .leading) {
-                Text(activity.name)
-                    .font(.headline)
+                Map {
+                    activity.polyline
+                        .strokeStyle(style: .mainLine)
+                        .stroke(.blue)
+                }
+                .frame(height: 200)
+                .allowsHitTesting(false)
                 
-                Text("^[\(activity.locations.count) point](inflect: true)")
+                VStack(alignment: .leading) {
+                    Text(activity.name)
+                        .font(.headline)
+                    
+                    Text("^[\(activity.locations.count) point](inflect: true)")
+                    
+                    Text(activity.distance.localizedString(with: .fps, in: .km_mi, toDp: 5))
+                }
+                .padding()
             }
-            .padding()
         }
         .listRowInsets(EdgeInsets())
     }
