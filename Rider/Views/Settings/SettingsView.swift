@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @AppStorage(UserDefaultsKey.unitSystem) var unitSystem = UnitSystem.metric
     
     var body: some View {
@@ -21,6 +23,11 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .destructiveAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
         }
     }
 }

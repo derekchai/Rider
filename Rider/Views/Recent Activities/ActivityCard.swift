@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct ActivityDetailedView: View {
+struct ActivityCard: View {
     @AppStorage(UserDefaultsKey.unitSystem) var unitSystem = UnitSystem.metric
     
     let activity: Activity
@@ -41,5 +41,5 @@ struct ActivityDetailedView: View {
 }
 
 #Preview {
-    ActivityDetailedView(activity: Activity.sampleData.first!)
+    ActivityCard(activity: Activity.sampleData.first!)
 }

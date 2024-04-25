@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A80261882BD84A40001A3769 /* ActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80261872BD84A40001A3769 /* ActivityExtension.swift */; };
 		A802618A2BD84B62001A3769 /* LocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80261892BD84B62001A3769 /* LocationExtension.swift */; };
-		A802618D2BD84D49001A3769 /* ActivityDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802618C2BD84D49001A3769 /* ActivityDetailedView.swift */; };
+		A802618D2BD84D49001A3769 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802618C2BD84D49001A3769 /* ActivityCard.swift */; };
 		A802618F2BD85665001A3769 /* StrokeStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802618E2BD85665001A3769 /* StrokeStyleExtension.swift */; };
 		A80261912BD87C6B001A3769 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80261902BD87C6B001A3769 /* ArrayExtension.swift */; };
 		A861106D2BD7A634005B7CFA /* RiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861106C2BD7A634005B7CFA /* RiderApp.swift */; };
@@ -34,6 +34,9 @@
 		A87D610D2BDA16AC00AC63BD /* RecentActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D610C2BDA16AC00AC63BD /* RecentActivitiesView.swift */; };
 		A87D61102BDA1BAA00AC63BD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D610F2BDA1BAA00AC63BD /* SettingsView.swift */; };
 		A87D61142BDA1F7200AC63BD /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D61132BDA1F7200AC63BD /* UserDefaultsKey.swift */; };
+		A87D611B2BDA28B600AC63BD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D611A2BDA28B600AC63BD /* ProfileView.swift */; };
+		A87D611D2BDA2B7E00AC63BD /* TimePeriodPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D611C2BDA2B7E00AC63BD /* TimePeriodPicker.swift */; };
+		A87D611F2BDA2BA100AC63BD /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D611E2BDA2BA100AC63BD /* TimePeriod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +59,7 @@
 /* Begin PBXFileReference section */
 		A80261872BD84A40001A3769 /* ActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExtension.swift; sourceTree = "<group>"; };
 		A80261892BD84B62001A3769 /* LocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExtension.swift; sourceTree = "<group>"; };
-		A802618C2BD84D49001A3769 /* ActivityDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailedView.swift; sourceTree = "<group>"; };
+		A802618C2BD84D49001A3769 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		A802618E2BD85665001A3769 /* StrokeStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyleExtension.swift; sourceTree = "<group>"; };
 		A80261902BD87C6B001A3769 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		A86110692BD7A634005B7CFA /* Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +87,9 @@
 		A87D610C2BDA16AC00AC63BD /* RecentActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivitiesView.swift; sourceTree = "<group>"; };
 		A87D610F2BDA1BAA00AC63BD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A87D61132BDA1F7200AC63BD /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		A87D611A2BDA28B600AC63BD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A87D611C2BDA2B7E00AC63BD /* TimePeriodPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodPicker.swift; sourceTree = "<group>"; };
+		A87D611E2BDA2BA100AC63BD /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +120,9 @@
 		A802618B2BD84CDD001A3769 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A87D61182BDA289C00AC63BD /* Profile */,
 				A87D610E2BDA1B8A00AC63BD /* Settings */,
-				A87D610B2BDA169400AC63BD /* RecentActivities */,
+				A87D610B2BDA169400AC63BD /* Recent Activities */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,14 +150,14 @@
 		A861106B2BD7A634005B7CFA /* Rider */ = {
 			isa = PBXGroup;
 			children = (
-				A861106C2BD7A634005B7CFA /* RiderApp.swift */,
 				A861106E2BD7A634005B7CFA /* ContentView.swift */,
-				A802618B2BD84CDD001A3769 /* Views */,
-				A861109B2BD7AC5A005B7CFA /* Extensions */,
-				A86110982BD7A9B3005B7CFA /* Models */,
+				A861106C2BD7A634005B7CFA /* RiderApp.swift */,
 				A86110722BD7A635005B7CFA /* Assets.xcassets */,
-				A87D61072BDA046400AC63BD /* GlobalFunctions */,
+				A861109B2BD7AC5A005B7CFA /* Extensions */,
+				A87D61072BDA046400AC63BD /* Global Functions */,
+				A86110982BD7A9B3005B7CFA /* Models */,
 				A86110742BD7A635005B7CFA /* Preview Content */,
+				A802618B2BD84CDD001A3769 /* Views */,
 			);
 			path = Rider;
 			sourceTree = "<group>";
@@ -186,7 +193,7 @@
 				A86110702BD7A634005B7CFA /* Activity.swift */,
 				A86110A72BD7C66A005B7CFA /* Location.swift */,
 				A861109E2BD7AFB7005B7CFA /* LocationDataManager.swift */,
-				A869730E2BD89B2A00792D74 /* UnitSystem.swift */,
+				A87D61152BDA242600AC63BD /* Constants */,
 				A87D610A2BDA04ED00AC63BD /* Enums */,
 				A86110A22BD7BB13005B7CFA /* Errors */,
 			);
@@ -217,30 +224,30 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		A87D61072BDA046400AC63BD /* GlobalFunctions */ = {
+		A87D61072BDA046400AC63BD /* Global Functions */ = {
 			isa = PBXGroup;
 			children = (
 				A87D61082BDA047800AC63BD /* UnitLocalization.swift */,
 			);
-			path = GlobalFunctions;
+			path = "Global Functions";
 			sourceTree = "<group>";
 		};
 		A87D610A2BDA04ED00AC63BD /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				A869730C2BD89A2B00792D74 /* Unit.swift */,
-				A87D61132BDA1F7200AC63BD /* UserDefaultsKey.swift */,
+				A87D611E2BDA2BA100AC63BD /* TimePeriod.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		A87D610B2BDA169400AC63BD /* RecentActivities */ = {
+		A87D610B2BDA169400AC63BD /* Recent Activities */ = {
 			isa = PBXGroup;
 			children = (
 				A87D610C2BDA16AC00AC63BD /* RecentActivitiesView.swift */,
-				A802618C2BD84D49001A3769 /* ActivityDetailedView.swift */,
+				A802618C2BD84D49001A3769 /* ActivityCard.swift */,
 			);
-			path = RecentActivities;
+			path = "Recent Activities";
 			sourceTree = "<group>";
 		};
 		A87D610E2BDA1B8A00AC63BD /* Settings */ = {
@@ -249,6 +256,24 @@
 				A87D610F2BDA1BAA00AC63BD /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A87D61152BDA242600AC63BD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A869730E2BD89B2A00792D74 /* UnitSystem.swift */,
+				A87D61132BDA1F7200AC63BD /* UserDefaultsKey.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A87D61182BDA289C00AC63BD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A87D611A2BDA28B600AC63BD /* ProfileView.swift */,
+				A87D611C2BDA2B7E00AC63BD /* TimePeriodPicker.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,10 +407,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87D61102BDA1BAA00AC63BD /* SettingsView.swift in Sources */,
+				A87D611D2BDA2B7E00AC63BD /* TimePeriodPicker.swift in Sources */,
 				A802618F2BD85665001A3769 /* StrokeStyleExtension.swift in Sources */,
 				A80261882BD84A40001A3769 /* ActivityExtension.swift in Sources */,
 				A87D61092BDA047800AC63BD /* UnitLocalization.swift in Sources */,
-				A802618D2BD84D49001A3769 /* ActivityDetailedView.swift in Sources */,
+				A802618D2BD84D49001A3769 /* ActivityCard.swift in Sources */,
 				A87D61142BDA1F7200AC63BD /* UserDefaultsKey.swift in Sources */,
 				A87D61062BDA025C00AC63BD /* UserDefaultsExtension.swift in Sources */,
 				A861106F2BD7A634005B7CFA /* ContentView.swift in Sources */,
@@ -398,8 +424,10 @@
 				A86110AA2BD7C8A2005B7CFA /* CLLocationExtension.swift in Sources */,
 				A869730B2BD898B700792D74 /* DoubleExtension.swift in Sources */,
 				A861106D2BD7A634005B7CFA /* RiderApp.swift in Sources */,
+				A87D611B2BDA28B600AC63BD /* ProfileView.swift in Sources */,
 				A861109D2BD7AC81005B7CFA /* CLLocationCoordinate2DExtension.swift in Sources */,
 				A861109F2BD7AFB7005B7CFA /* LocationDataManager.swift in Sources */,
+				A87D611F2BDA2BA100AC63BD /* TimePeriod.swift in Sources */,
 				A80261912BD87C6B001A3769 /* ArrayExtension.swift in Sources */,
 				A86110A42BD7BB28005B7CFA /* LocationDataManagerError.swift in Sources */,
 				A802618A2BD84B62001A3769 /* LocationExtension.swift in Sources */,

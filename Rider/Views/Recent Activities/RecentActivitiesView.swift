@@ -24,7 +24,7 @@ struct RecentActivitiesView: View {
         NavigationStack {
             List {
                 ForEach(activities) { activity in
-                    ActivityDetailedView(activity: activity)
+                    ActivityCard(activity: activity)
                 }
                 .onDelete { indexSet in
                     for index in indexSet {
