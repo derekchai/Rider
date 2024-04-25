@@ -28,7 +28,8 @@ struct ActivityDetailedView: View {
                     
                     Text("^[\(activity.locations.count) point](inflect: true)")
                     
-                    Text(activity.distance.localizedString(with: .fps, in: .km_mi, toDp: 5))
+                    Text(unitString(from: activity.maxSpeed, in: .kmh⁻¹_mih⁻¹, toDp: 2))
+                    
                 }
                 .padding()
             }

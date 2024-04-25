@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum Units {
-    case m_ft, km_mi, kg_lb, s, ms⁻¹_fts⁻¹, kmh⁻¹_mih⁻¹
+enum Unit {
+    case m_ft, km_mi, s, kmh⁻¹_mih⁻¹
 }

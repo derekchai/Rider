@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum UnitSystem {
+enum UnitSystem: Codable {
     case mks, fps
 }
