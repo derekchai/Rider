@@ -14,7 +14,6 @@ struct RiderApp: App {
     
     static let subsystem = "youngboris.Rider"
     static let debugMode = true
-    static let unitSystem: UnitSystem = .mks
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([

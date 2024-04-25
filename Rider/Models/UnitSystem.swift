@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum UnitSystem: Codable {
-    case mks, fps
+struct UnitSystem {
+    static let imperial = "imperial"
+    static let metric = "metric"
 }

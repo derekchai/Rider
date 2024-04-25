@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct ActivityDetailedView: View {
+    @AppStorage(UserDefaultsKey.unitSystem) var unitSystem = UnitSystem.metric
+    
     let activity: Activity
     
     var body: some View {
@@ -28,7 +30,7 @@ struct ActivityDetailedView: View {
                     
                     Text("^[\(activity.locations.count) point](inflect: true)")
                     
-                    Text(unitString(from: activity.maxSpeed, in: .kmh⁻¹_mih⁻¹, toDp: 2))
+                    Text(unitString(from: activity.maxSpeed, in: .kmh⁻¹_mih⁻¹, with: unitSystem, toDp: 2))
                     
                 }
                 .padding()
