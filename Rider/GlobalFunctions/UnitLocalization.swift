@@ -6,24 +6,33 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Returns a formatted string of a given SI base unit value in metres (distance),
 /// metres per second (speed), or seconds (time), in various units depending on
 /// the `unitSystem` string key for `UserDefaults`.
-///
+/// 
 /// Returns MKS (metric) units if the `UserDefaults` string for key `unitSystem`
 /// is `mks`, and returns FPS (imperial) units if the key is `fps`.
 /// - Parameters:
 ///   - valueSI: The SI value, in metres, seconds, or metres per second.
 ///   - unit: The unit of the result.
+///   - unitSystem: The unit system the result should be in.   
 ///   - toDp: The decimal places the result should be rounded to.
 /// - Returns: The resulting formatted string.
-func unitString(from valueSI: Double, in unit: Unit, toDp: Int = 0) -> String {
+func unitString(from valueSI: Double, in unit: Unit, with unitSystem: String, toDp: Int = 0) -> String {
     let value: Double
-    let unitSystem = UserDefaults.standard.string(forKey: "unitSystem") ?? "mks"
-    
-    if unitSystem == "mks" {
-        value = valueSI
+    if unitSystem == UnitSystem.metric {
+        switch unit {
+        case .m_ft:
+            value = valueSI
+        case .km_mi:
+            value = valueSI / 1000
+        case .s:
+            value = valueSI
+        case .kmh⁻¹_mih⁻¹:
+            value = valueSI * 3.6
+        }
     } else {
         let metres = Measurement(value: valueSI, unit: UnitLength.meters)
         let metresPerSecond = Measurement(value: valueSI, unit: UnitSpeed.metersPerSecond)
@@ -42,7 +51,7 @@ func unitString(from valueSI: Double, in unit: Unit, toDp: Int = 0) -> String {
     
     let unitAbbreviation: String
     
-    if unitSystem == "mks" {
+    if unitSystem == UnitSystem.metric {
         switch unit {
         case .m_ft:
             unitAbbreviation = "m"
