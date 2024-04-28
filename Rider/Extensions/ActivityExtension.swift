@@ -98,9 +98,29 @@ extension Activity {
         MapPolyline(coordinates: self.locations.map { $0.toCLLocationCoordinate2D })
     }
     
+    static func random() -> Activity {
+        let adjectives = ["Sunny", "Cloudy", "Rainy", "Windy", "Snowy"]
+        let modes = ["Walk", "Run", "Ride", "Hike"]
+        
+        let name = "A \(adjectives[Int.random(in: 0..<adjectives.count)]) \(modes[Int.random(in: 0..<modes.count)])"
+        
+        let startLocation = Location(latitude: Double.random(in: -90...90), longitude: Double.random(in: -180...180), altitude: Double.random(in: -10...200), horizontalAccuracy: 3, verticalAccuracy: 3, speed: Double.random(in: 0...50), speedAccuracy: 3, course: 0, courseAccuracy: 0, timestamp: Date.now - Double.random(in: 86_400...31_536_000))
+        
+        var activity = Activity(name: name, locations: [startLocation])
+        
+        for i in 1...Int.random(in: 50...100) {
+            var speed = activity.locations[i - 1].speed + Double.random(in: -5...5)
+            if speed < 0 { speed = 0 }
+            
+            activity.locations.append(Location(latitude: activity.locations[i - 1].latitude + Double.random(in: -0.0001...0.0001), longitude: activity.locations[i - 1].longitude + Double.random(in: -0.0001...0.0001), altitude: activity.locations[i - 1].altitude + Double.random(in: -1...1), horizontalAccuracy: 3, verticalAccuracy: 3, speed: speed, speedAccuracy: 3, course: 0, courseAccuracy: 0, timestamp: startLocation.timestamp + (Double(i) * 1.2)))
+        }
+        
+        return activity
+    }
+    
     static let sampleData: [Activity] = [
-        Activity(name: "Example Activity", endDate: Date.now, locations: []),
-        Activity(name: "Another Activity", endDate: Date.now, locations: []),
-        Activity(name: "One More Activity", endDate: Date.now, locations: [])
+        Activity(name: "Example Activity", locations: []),
+        Activity(name: "Another Activity", locations: []),
+        Activity(name: "One More Activity", locations: [])
     ]
 }

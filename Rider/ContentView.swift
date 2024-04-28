@@ -22,9 +22,9 @@ struct ContentView: View {
                     Label("Map", systemImage: "map")
                 }
             
-            SettingsView()
+            ProfileView()
                 .tabItem {
-                    Label("Settings", systemImage: "gear")
+                    Label("Profile", systemImage: "person.crop.circle")
                 }
         }
     }
@@ -32,5 +32,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Activity.self, inMemory: true)
+//        .modelContainer(for: Activity.self, inMemory: true)
+        .modelContainer(RiderApp.previewContainer)
 }

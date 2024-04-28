@@ -10,12 +10,16 @@ import SwiftUI
 struct ProfileView: View {
     @State private var timePeriod: TimePeriod = .weekly
     @State private var presentingSettings = false
+    @State private var rawSelectedDate: Date?
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 TimePeriodPicker(timePeriod: $timePeriod)
                     .listRowInsets(EdgeInsets())
+                
+                ActivityChart(rawSelectedDate: $rawSelectedDate, timePeriod: $timePeriod)
+                    .frame(height: 300)
             }
             .padding()
             .navigationTitle("Profile")

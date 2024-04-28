@@ -8,23 +8,37 @@
 import SwiftUI
 import SwiftData
 
-@main
+@main @MainActor
 struct RiderApp: App {
-//    @State private var userPreferences = UserPreferences(unitSystem: .fps)
-    
     static let subsystem = "youngboris.Rider"
-    static let debugMode = true
+    static let debugMode = false
     
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Activity.self
-        ])
+        let schema = Schema([Activity.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: debugMode)
         
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
+        }
+    }()
+    
+    static let previewContainer: ModelContainer = {
+        do {
+            let modelConfiguration = ModelConfiguration(isStoredInMemoryOnly: true)
+            let schema = Schema([Activity.self])
+            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            
+//            for _ in 1...3 {
+//                container.mainContext.insert(Activity.random())
+//            }
+            
+            container.mainContext.insert(Activity(name: "Empty Activity", locations: []))
+            
+            return container
+        } catch {
+            fatalError("Could not create ModelContainer for preview: \(error)")
         }
     }()
     

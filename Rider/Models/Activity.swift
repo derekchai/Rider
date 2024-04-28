@@ -14,7 +14,7 @@ final class Activity {
     var name: String = "New activity"
     var locations: [Location] = []
     
-    init(name: String, endDate: Date? = nil, locations: [Location]) {
+    init(name: String, locations: [Location]) {
         self.name = name
         self.locations = locations
     }
